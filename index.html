@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Capacity Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="app-container">
+        
+        <!-- PHASE 1: INSTRUCTIONS -->
+        <div id="phase-1" class="screen active">
+            <h1>Memory Capacity Test</h1>
+            <p>You will face 10 memory trials. In each trial, a sequence of made-up words will appear on the screen one by one.</p>
+            <p>After they disappear, you must immediately select them back in the correct order.</p>
+            <p style="color: var(--danger-color); font-weight: bold;">⚠️ CRITICAL RULE ⚠️</p>
+            <p>ONE of these sequences is special. If the screen flashes <strong>RED</strong> and displays a <strong>🔔 BELL</strong> before a trial starts, that is the Special Sequence. You must repeat it back immediately, but ALSO memorize it. At the very end of the experiment, you will be tested on it.</p>
+            <button id="start-btn" class="btn">I understand, start the test</button>
+            <br><br>
+            <!-- DEV MODE BUTTON (REMOVE BEFORE DEPLOYING) -->
+            <button onclick="debugSkipToEnd()" style="background-color: #ff9800; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">🛠️ [DEV MODE] Skip to Results</button>
+        </div>
+
+        <!-- PHASE 2: THE TRIALS -->
+        <div id="phase-2" class="screen hidden">
+            <h2 id="trial-counter">Trial 1 / 10</h2>
+            <div id="bell-warning" class="hidden">
+                <h1 style="font-size: 4rem; margin: 0;">🔔</h1>
+                <h2 style="color: white;">MEMORIZE THIS SEQUENCE FOR LATER!</h2>
+            </div>
+            
+            <h1 id="word-display" class="word-text"></h1>
+            
+            <div id="mcq-section" class="hidden">
+                <h3 id="question-text">What was word #1?</h3>
+                <div id="options-container" style="display: flex; flex-direction: column; gap: 10px; align-items: center;"></div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: THE DISTRACTOR TASK -->
+        <div id="phase-3" class="screen hidden">
+            <h2 style="color: var(--danger-color);">SECURITY CHECK</h2>
+            <p>To proceed, you must prove you are human. Find and click the target word as fast as you can.</p>
+            <p><strong>Goal:</strong> Get 7 correct in 20 seconds!</p>
+            
+            <h1 id="timer-display" style="font-size: 3rem;">20.0</h1>
+            <h3 id="distractor-score">Score: 0 / 7</h3>
+            
+            <h2 id="target-word-display" style="margin-top: 30px; letter-spacing: 2px;">TARGET: ???</h2>
+            
+            <div id="distractor-options" style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px;"></div>
+        </div>
+
+        <!-- PHASE 4: FINAL LTM TEST -->
+        <div id="phase-4" class="screen hidden">
+            <h2>Final Memory Test</h2>
+            <p>Do you remember the special <strong>BELL</strong> sequence from earlier?</p>
+            <p>Fill in the missing word:</p>
+            
+            <h1 id="final-sequence-display" class="word-text" style="font-size: 2rem; color: var(--primary-color);"></h1>
+            
+            <div id="final-options" style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 30px;"></div>
+        </div>
+
+        <!-- PHASE 5: END SCREEN -->
+        <div id="phase-5" class="screen hidden">
+            <h1 id="end-title" style="color: var(--primary-color);">Experiment Complete!</h1>
+            <p id="end-subtitle">Here is your Cognitive Profile based on your performance:</p>
+            
+            <div style="text-align: left; background: #fff; padding: 20px; border-radius: 8px; border: 2px solid #eee; margin-top: 20px;">
+                <h3>🧠 Working Memory (Short-Term)</h3>
+                <p><strong>Accuracy:</strong> <span id="res-accuracy">--</span></p>
+                <p><strong>Avg Reaction Time:</strong> <span id="res-rt">--</span></p>
+                
+                <h3>🛡️ Permanent Memory (Long-Term)</h3>
+                <p><strong>Interference Shielding:</strong> <span id="res-ltm">--</span></p>
+                
+                <hr style="margin: 20px 0; border: 1px solid #eee;">
+                
+                <h3 style="color: var(--primary-color);">📊 Where You Stand</h3>
+                <p id="res-analysis" style="font-weight: bold; line-height: 1.5;"></p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
