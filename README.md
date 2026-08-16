@@ -27,5 +27,5 @@ This project required several key decisions to ensure the experiment yielded val
     *   *Reasoning:* Completing a grueling 5-minute memory test only to see a blank "Thank You" screen is a terrible user experience. I added a final calculation engine that parses the user's 42 data points on the fly. It grades their accuracy, averages their reaction times, and uses normative hardcoded rules to generate a personalized "Cognitive Profile" (e.g., placing them in a top percentile). This turns the experiment into a complete, satisfying product.
 
 ## 4. Links
-*   **GitHub repository:** `[Insert GitHub Link Here]`
-*   **Deployment:** `[Insert Vercel Link Here]`
+*   **GitHub repository:** `[[Insert GitHub Link Here]](https://github.com/Ankush0077/dual-memory-capacity-test)`
+*   **Deployment:** `dual-memory-capacity-test-nq035dwwr-ankush-c7de.vercel.app`
