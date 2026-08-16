@@ -1,4 +1,4 @@
-# Assignment Submission: Dual-Store Memory Capacity Test
+# Dual-Store Memory Capacity Test
 
 ## 1. What I built and why
 I chose to build a **Dual-Store Memory Capacity Test**, an interactive cognitive psychology experiment designed to simultaneously evaluate a user's Working Memory (WM) and Long-Term Memory (LTM). 
